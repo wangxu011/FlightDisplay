@@ -1,0 +1,50 @@
+<template>
+  <div class="item1" @click="turnTo" :style="props.layout">
+    <div class="img_wrap">
+      <img src="../../../assets/images/55/routes/11.png" alt="">
+    </div>
+    <p class="label">{{$t('subPage.transitGuidance.title')}}</p>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+import { _getCategoryByLabel } from '../../../axios/api/categoryController'
+import { categoryMap } from '../../../utils/generalMap'
+import { createMsg } from '../../../utils/message'
+
+const props = defineProps({
+  layout: {
+    type: Object
+  }
+})
+
+const type = ref('')
+const label = '中转服务'
+
+onMounted(() => {
+  // 获取 “中转指南” 对应的模式，然后跳转至对应的渲染模板，并传递title
+  _getCategoryByLabel(label).then(res => {
+    console.log(res)
+    if(res.value) {
+      type.value = res.value.module
+    }
+  })
+})
+
+const { t } = useI18n() 
+const router = useRouter()
+const turnTo = () => {
+  if(type.value) {
+    router.push(`${categoryMap[type.value]}?label=${label}&id=`)
+  }else {
+    createMsg('warning', t('general.noData'), 'msg32')
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+</style>

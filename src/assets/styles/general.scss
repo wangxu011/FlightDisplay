@@ -1,0 +1,103 @@
+.drop-leave-active,
+.drop-enter-active {
+  transition: all .3s;
+}
+.drop-enter-from{
+  opacity: 0;
+  transform: translateY(-50px);
+}
+.drop-leave-to {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+.raise-leave-active,
+.raise-enter-active {
+  transition: all .3s;
+}
+.raise-enter-from{
+  opacity: 0;
+  transform: translateY(100px);
+}
+.raise-leave-to {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* 32寸页面首页中，模块的样式：item2是占有两个位置的样式，item1是一个位置的样式*/
+.item2{
+  width: 66%;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img_wrap{
+    width: 176px;
+    height: 176px;
+    img{
+      width: 100%;
+    }
+  }
+  .label{
+    width: 320px;
+    margin-left: 25px;
+  }
+}
+.item1{
+  width: 32%;
+  font-size: 34px;
+  .img_wrap{
+    width: 176px;
+    height: 176px;
+    margin: 0 auto;
+    margin-top: 25px;
+    img{
+      width: 100%;
+    }
+  }
+  .label{
+    margin-top: 20px;
+  }
+}
+
+/* 55寸页面首页中，模块的样式 */
+.item_55{
+  height: 660px;
+  border-radius: 10px;
+  background: #384048;
+  opacity: .8;
+  padding: 74px 48px;
+  .img_wrap{
+    width: 208px;
+    margin: 0 auto;
+    img{
+      width: 100%; 
+    }
+  }
+  hr{
+    margin: 40px 0;
+  }
+  .name_wrap{
+    display: flex;
+    justify-content: center;
+    .cn{
+      width: 158px;
+      color: #E2E6E7;
+      font-size: 70px;
+      letter-spacing: 8px;
+      text-align: left;
+      line-height: 1.1em;
+    }
+    .en{
+      color: #E2E6E7;
+      font-size: 60px;
+      text-align: center;
+      line-height: 1.2em;
+      margin-top: 20px;
+    }
+  }
+}
+
+.table_num{
+  font-family: 'Univers';
+}
